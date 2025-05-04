@@ -14,21 +14,27 @@ public class LionTest {
     Feline feline;
 
     @Test
-    public void testGetKittens() throws Exception {
+    public void getKittens_ShouldReturnFelineKittensCount() throws Exception {
         when(feline.getKittens()).thenReturn(3);
         Lion lion = new Lion("Самец", feline);
         assertEquals(3, lion.getKittens());
     }
 
     @Test
-    public void testGetFood() throws Exception {
-        when(feline.eatMeat()).thenReturn(List.of("Мясо"));
+    public void getFood_ShouldReturnPredatorFood() throws Exception {
+        when(feline.eatMeat()).thenReturn(List.of("Мясо", "Рыба"));
         Lion lion = new Lion("Самка", feline);
-        assertEquals(List.of("Мясо"), lion.getFood());
+        assertEquals(List.of("Мясо", "Рыба"), lion.getFood());
+    }
+
+    @Test
+    public void doesHaveMane_ShouldReturnTrueForMale() throws Exception {
+        Lion lion = new Lion("Самец", feline);
+        assertTrue(lion.doesHaveMane());
     }
 
     @Test(expected = Exception.class)
-    public void testInvalidSexThrowsException() throws Exception {
+    public void constructor_ShouldThrowExceptionForInvalidSex() throws Exception {
         new Lion("Неизвестно", feline);
     }
 }

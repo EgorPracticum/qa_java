@@ -1,39 +1,35 @@
 package com.example;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
-import static org.mockito.Mockito.when;
+import java.util.Arrays;
+import java.util.Collection;
+import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class LionParameterizedTest {
-    private final String sex;
-    private final boolean hasMane;
-
     @Mock
     Feline feline;
 
-    public LionParameterizedTest(String sex, boolean hasMane) {
-        this.sex = sex;
-        this.hasMane = hasMane;
-        MockitoAnnotations.openMocks(this);
-    }
+    @Parameterized.Parameter(0)
+    public String sex;
 
-    @Parameterized.Parameters(name = "{0}")
-    public static Object[][] getData() {
-        return new Object[][]{
+    @Parameterized.Parameter(1)
+    public boolean expectedHasMane;
+
+    @Parameterized.Parameters(name = "Тест пола: {0}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][]{
                 {"Самец", true},
                 {"Самка", false}
-        };
+        });
     }
 
     @Test
-    public void haveManeTest() throws Exception {
+    public void doesHaveMane_ShouldReturnExpectedForSex() throws Exception {
         Lion lion = new Lion(sex, feline);
-        Assert.assertEquals(hasMane, lion.doesHaveMane());
+        assertEquals(expectedHasMane, lion.doesHaveMane());
     }
 }

@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-<<<<<<< HEAD
     <groupId>com.example</groupId>
     <artifactId>qa-java</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -15,37 +14,25 @@
         <maven.compiler.target>11</maven.compiler.target>
         <junit.version>4.13.2</junit.version>
         <mockito.version>3.12.4</mockito.version>
+        <jacoco.version>0.8.8</jacoco.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>3.12.4</version>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
-=======
-    <groupId>org.example</groupId>
-    <artifactId>untitled</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
-
-    <build>
-        <sourceDirectory>src/main/java</sourceDirectory>
->>>>>>> origin/main
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -56,27 +43,25 @@
                     <target>11</target>
                 </configuration>
             </plugin>
-<<<<<<< HEAD
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.3.0</version>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
                 <executions>
                     <execution>
-                        <id>sources</id>
-                        <phase>test-compile</phase>
                         <goals>
-                            <goal>sources</goal>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
-
     </build>
-=======
-        </plugins>
-    </build>
-
->>>>>>> origin/main
 </project>
