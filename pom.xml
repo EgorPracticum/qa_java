@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+<<<<<<< HEAD
     <groupId>com.example</groupId>
     <artifactId>qa-java</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -32,6 +33,19 @@
     </dependencies>
 
     <build>
+=======
+    <groupId>org.example</groupId>
+    <artifactId>untitled</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+>>>>>>> origin/main
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -42,6 +56,7 @@
                     <target>11</target>
                 </configuration>
             </plugin>
+<<<<<<< HEAD
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -59,4 +74,9 @@
         </plugins>
 
     </build>
+=======
+        </plugins>
+    </build>
+
+>>>>>>> origin/main
 </project>

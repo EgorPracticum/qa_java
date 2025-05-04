@@ -3,6 +3,7 @@ package com.example;
 import java.util.List;
 
 public class Lion {
+<<<<<<< HEAD
     private final boolean hasMane;
     private final Predator predator;
 
@@ -22,6 +23,25 @@ public class Lion {
             return ((Feline) predator).getKittens();
         }
         return 0;
+=======
+
+    boolean hasMane;
+
+    public Lion(String sex) throws Exception {
+        if ("Самец".equals(sex)) {
+            hasMane = true;
+        } else if ("Самка".equals(sex)) {
+            hasMane = false;
+        } else {
+            throw new Exception("Используйте допустимые значения пола животного - самей или самка");
+        }
+    }
+
+    Feline feline = new Feline();
+
+    public int getKittens() {
+        return feline.getKittens();
+>>>>>>> origin/main
     }
 
     public boolean doesHaveMane() {
@@ -29,6 +49,12 @@ public class Lion {
     }
 
     public List<String> getFood() throws Exception {
+<<<<<<< HEAD
         return predator.eatMeat();
     }
 }
+=======
+        return feline.getFood("Хищник");
+    }
+}
+>>>>>>> origin/main
